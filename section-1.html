@@ -142,14 +142,21 @@
 <p>在这一章节，介绍流程搭建所需的服务器配置条件，经过比较，AWS是比较好的选择，所以暂时以AWS为例来介绍。其他平台原理类似。</p>
 <div id="section-1.1" class="section level2">
 <h2><span class="header-section-number">1.1</span> 计算平台选择</h2>
+<p>研究机构和大学一般会有自己的计算平台，具体的维护依赖管理人员，就我目前所在的学校的计算平台，优势是技术支持比较方便，有什么问题发个邮件或者可以当面交流，但是缺点也很多，比如稳定性不好，经常隔几周就发生一次无预警任务丢失，价格比较贵，计算能力有限，任务容易受其他用户的进程干扰。</p>
+<p>一些商业服务商提供的计算平台更可靠划算一些。比较好的是亚马逊和谷歌。优点是数据传输更快，稳定，可选配置多样，但是缺点也很突出，没人帮你配置环境，需要自己配置。</p>
 <div id="section-1.1.1" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> 服务商</h3>
+<p>AWS的服务器挺好。</p>
 </div>
 <div id="section-1.1.2" class="section level3">
 <h3><span class="header-section-number">1.1.2</span> 计算服务器</h3>
+<p>EC2。有4种形式：On-Demand, Spot instances, Reserved Instances, Dedicated Hosts。其中主要用On-Demand（长期任务）和Spot instances（短期任务）。</p>
+<p>这里有详细的配置和报价：<a href="https://aws.amazon.com/ec2/pricing/on-demand/" class="uri">https://aws.amazon.com/ec2/pricing/on-demand/</a></p>
+<p>根据计算需求进行选择。Spot instances会比On-Demand便宜80%左右。但是Spot instances会不定时收回服务器，越高配置的收回越频繁。收回会造成数据丢失。</p>
 </div>
 <div id="section-1.1.3" class="section level3">
 <h3><span class="header-section-number">1.1.3</span> 储存服务器</h3>
+<p>S3。用于数据备份和共享。将s3挂载到服务器上，对运算结果进行备份。还可以搭配亚马逊的SFTP（<a href="https://us-east-2.console.aws.amazon.com/transfer/）建立更稳定的数据传输" class="uri">https://us-east-2.console.aws.amazon.com/transfer/）建立更稳定的数据传输</a>。</p>
 </div>
 </div>
 <div id="section-1.2" class="section level2">
